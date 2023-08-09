@@ -1,0 +1,17 @@
+.bg-black {
+  background: $backColor;
+}
+.header {
+  @extend %flex-space-between;
+  height: 75px;
+  &__left {
+    display: flex;
+    align-items: end;
+    gap: 41px;
+  }
+  &__right {
+    display: flex;
+    align-items: end;
+    gap: 33px;
+  }
+}
