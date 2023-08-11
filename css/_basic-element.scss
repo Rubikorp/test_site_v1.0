@@ -1,17 +1,333 @@
+$widthSite: 1140px;
+$gap: 30px;
+
+$pinkColor: #F16D7F;
+$backColor: #222;
+$whiteColor: #FFF;
+$grayColor: #5D5D5D;
+$blackColor: #000;
+$backColorFi: #F8F8F8;
+
+%flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@mixin animation($animElem) {
+  transition: $animElem 0.3s ease;
+}
+@mixin font($color, $font-size, $font-weight) {
+  color: $color;
+  font-size: $font-size;
+  font-style: normal;
+  font-weight: $font-weight;
+  line-height: normal;
+}
+
+/*обнуление стилей*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', serif;
+}
+
+ou, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* отображаем курсор в виде руки при наведении; некоторые
+  считают, что необходимо оставлять стрелочный вид для кнопок */
+  cursor: pointer;
+}
+
+/*center*/
+.center {
+  padding-left: calc(50% - #{$widthSite} / 2);
+  padding-right: calc(50% - #{$widthSite} / 2);
+}
+
+
+/*header*/
 .bg-black {
   background: $backColor;
 }
+
 .header {
   @extend %flex-space-between;
   height: 75px;
+
   &__left {
     display: flex;
     align-items: end;
     gap: 41px;
   }
+
   &__right {
     display: flex;
     align-items: end;
     gap: 33px;
+  }
+  &__svg {
+    fill: #E8E8E8;
+    @include animation(fill);
+  }
+}
+
+.header__svg:hover {
+  fill: #E05C6E;
+}
+
+.header-nav {
+  background-color: #F8F3F4;
+  height: 148px;
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    @include font($pinkColor, 24px, 400);
+  }
+  &__nav {
+    @include font($grayColor, 14px, 300);
+  }
+  &__link {
+    @include animation(color);
+    @include font($grayColor, 14px, 300);
+  }
+}
+
+.header-nav__link:first-child {
+  color: $pinkColor;
+  font-weight: 700;
+}
+.header-nav__link:hover {
+  color:$pinkColor;
+}
+.fi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    @include font($blackColor, 30px, 400);
+  }
+
+  &__dsc {
+    @include font($grayColor, 14px, 400);
+    margin-top: 6px;
+  }
+
+  &__block-articles {
+    @extend %flex-space-between;
+    flex-wrap: wrap;
+    gap: $gap;
+  }
+
+  &__button {
+    width: auto;
+    margin-top: 48px;
+    padding: 15px 39px;
+    border: $pinkColor 1px solid;
+    @include font($pinkColor, 16px, 400);
+    @include animation(color);
+    @include animation(background-color);
+  }
+}
+
+.fi__button:hover {
+  color: $whiteColor;
+  background-color: $pinkColor;
+}
+
+.fi-item {
+  margin-top: 48px;
+  width: calc((100% - 2 * #{$gap}) / 3);
+  background: $backColorFi;
+  text-align: left;
+
+  &__img {
+    width: 100%;
+  }
+
+  &__dsc-container {
+    padding: 20px 16px;
+  }
+
+  &__link {
+    @include font($blackColor, 13px, 600);
+  }
+
+  &__dsc {
+    margin-top: 12px;
+    @include font(#5D5D5D, 14px, 300);
+  }
+
+  &__price {
+    margin-top: 16px;
+    @include font($pinkColor, 16px, 400);
+  }
+}
+
+/*benefits*/
+.benefits {
+  margin-top: 95px;
+  height: 341px;
+
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $gap;
+  }
+
+  &__article {
+    height: calc(100% - 30.5% * 2);
+    width: calc((100% - 2 * #{$gap}) / 3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include font($whiteColor, 20px, 400)
+  }
+
+  &__dsc {
+    text-align: center;
+    @include font($whiteColor, 14px, 300)
+  }
+}
+
+/*Subscribe*/
+.subscribe {
+  height: 448px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(rgba(244, 244, 244, 0.70), rgba(244, 244, 244, 0.70)), url("../img/bg_subscribe.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.subscribe-left {
+  width: 32%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  &__avatar {
+    height: 96px;
+    width: 96px;
+  }
+
+  &__quote {
+    margin-top: $gap;
+    @include font($blackColor, 20px, 400);
+  }
+
+  &__quote-italic {
+    font-style: italic;
+  }
+}
+
+.subscribe-right {
+  width: 32%;
+
+  &__title {
+    text-align: center;
+    @include font($blackColor, 24px, 700)
+  }
+
+  &__small-title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+.subscribe-form {
+  margin-top: 32px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__input {
+    padding: 15px 64px 15px 22px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    background: #E1E1E1;
+    @include font(#222224, 14px, 400);
+  }
+
+  &__button {
+    padding: 15px 18px 15px 17px;
+    border-radius: 0 25px 25px 0;
+    background: #F16D7F;
+    @include font($whiteColor, 14px, 400);
+    @include animation(background-color);
+  }
+  .subscribe-form__button:hover {
+    background-color: #de4b62;
+  }
+}
+
+/*footer*/
+.footer {
+  height: 79px;
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.footer-left {
+  @include font($whiteColor, 16px, 400);
+}
+.footer-right {
+  height: 32px;
+  display: flex;
+  gap: 7px;
+  &__link {
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: $whiteColor;
+    @include animation(background-color);
+  }
+  &__svg {
+    fill: black;
+    @include animation(fill);
+  }
+
+  .footer-right__link:hover {
+    background-color: $pinkColor;
+  }
+  .footer-right__link:hover > .footer-right__svg {
+    fill: $whiteColor;
   }
 }

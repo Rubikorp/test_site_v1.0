@@ -1,0 +1,167 @@
+@import "basic-element";
+
+.header-nav__link:first-child {
+  @include font($grayColor, 14px, 300);
+}
+
+.header-nav__link:last-child {
+  color: $pinkColor;
+  font-weight: 700;
+}
+
+/*catalog slide*/
+.catalog {
+  height: 777px;
+  position: relative;
+  background-color: #F7F7F7;
+
+  &__slide {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image {
+    height: 100%;
+  }
+}
+
+.catalog-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__button {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c7c5c5;
+  }
+
+  &__svg {
+    fill: black;
+    @include animation(fill);
+  }
+}
+
+.catalog-buttons__button:hover > .catalog-buttons__svg {
+  fill: $pinkColor;
+}
+
+.catalog-right-btn {
+  transform: rotate(180deg);
+}
+
+/*catalog card*/
+.position-relative {
+  position: relative;
+}
+
+.catalog-card {
+  min-height: 500px;
+
+  &__container {
+    position: absolute;
+    top: -50px;
+    left: calc(50% - #{$widthSite} / 2);
+    right: calc(50% - #{$widthSite} / 2);
+    text-align: center;
+    background-color: white;
+    border: #EAEAEA 1px solid;
+  }
+
+  &__svg {
+    margin-top: 65px;
+  }
+}
+
+.catalog-card__dsc {
+  &__main-title {
+    margin-top: 64px;
+    @include font($pinkColor, 14px, 300);
+  }
+
+  &__svg {
+    margin-top: 12px;
+  }
+
+  &__title-model {
+    margin-top: 12px;
+    @include font(#4D4D4D, 18px, 300);
+  }
+
+  &__dsc {
+    max-width: 50%;
+    margin-top: 48px;
+    margin-right: auto;
+    margin-left: auto;
+    @include font(#5E5E5E, 14px, 300);
+  }
+
+  &__price {
+    margin-top: 32px;
+    @include font($pinkColor, 24px, 300)
+  }
+}
+
+.catalog-card__form {
+  &__label {
+    @include font(#6F6E6E, 14px, 400);
+  }
+
+  &__select {
+    width: 1.2%;
+    border: none;
+    appearance: none;
+    overflow: hidden;
+    background: url('../img/catalog/Vector.svg') no-repeat right;
+  }
+}
+
+.catalog-card__form__label:not(:first-child) {
+  padding-left: $gap;
+}
+
+.catalog-card__form__button {
+  position: relative;
+  margin-top: 48px;
+  margin-bottom: 61px;
+  padding: 15px 57px 15px 73px;
+  border: $pinkColor 1px solid;
+  @include font($pinkColor, 16px, 400);
+  @include animation(color);
+  @include animation(background-color);
+
+  &__svg {
+    position: absolute;
+    top: 15px;
+    left: 24px;
+    fill: $pinkColor;
+    @include animation(fill)
+  }
+}
+
+.catalog-card__form__button:hover {
+  background-color: $pinkColor;
+  color: $whiteColor;
+}
+
+.catalog-card__form__button:hover > .catalog-card__form__button__svg {
+  fill: $whiteColor;
+}
+
+/*fi*/
+.fi {
+  margin-top: 128px;
+  margin-bottom: 128px;
+}
+
+.fi-item {
+  margin-top: 0;
+}
