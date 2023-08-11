@@ -4,6 +4,10 @@
   @include font($grayColor, 14px, 300);
 }
 
+.header-nav__link:first-child:hover {
+  color: $pinkColor;
+}
+
 .header-nav__link:last-child {
   color: $pinkColor;
   font-weight: 700;

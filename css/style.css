@@ -229,7 +229,7 @@ button {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background: url("/img/for_women.jpg") no-repeat;
+  background: url("../img/for_women.jpg") no-repeat;
   z-index: -2;
 }
 
@@ -241,7 +241,7 @@ button {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background: url("/img/for_men.jpg") no-repeat;
+  background: url("../img/for_men.jpg") no-repeat;
   z-index: -2;
 }
 
@@ -253,7 +253,7 @@ button {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background: url("/img/for_kids.png") no-repeat;
+  background: url("../img/for_kids.png") no-repeat;
   z-index: -2;
 }
 
@@ -265,7 +265,7 @@ button {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background: url("/img/ACCESORIES.jpg") no-repeat;
+  background: url("../img/ACCESORIES.jpg") no-repeat;
   z-index: -2;
 }
 

@@ -355,6 +355,10 @@ button {
   line-height: normal;
 }
 
+.header-nav__link:first-child:hover {
+  color: #F16D7F;
+}
+
 .header-nav__link:last-child {
   color: #F16D7F;
   font-weight: 700;
