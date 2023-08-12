@@ -1,5 +1,6 @@
 @import "basic-element";
 
+
 .header-nav__link:first-child {
   @include font($grayColor, 14px, 300);
 }
@@ -12,6 +13,7 @@
   color: $pinkColor;
   font-weight: 700;
 }
+
 
 /*catalog slide*/
 .catalog {

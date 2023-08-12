@@ -1,36 +1,4 @@
-$widthSite: 1140px;
-$gap: 30px;
-
-$pinkColor: #F16D7F;
-$backColor: #222;
-$whiteColor: #FFF;
-$grayColor: #5D5D5D;
-$blackColor: #000;
-$backColorFi: #F8F8F8;
-
-%flex-space-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-%flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-@mixin animation($animElem) {
-  transition: $animElem 0.3s ease;
-}
-@mixin font($color, $font-size, $font-weight) {
-  color: $color;
-  font-size: $font-size;
-  font-style: normal;
-  font-weight: $font-weight;
-  line-height: normal;
-}
+@import "basic-element";
 
 /*обнуление стилей*/
 * {

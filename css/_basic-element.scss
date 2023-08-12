@@ -1,4 +1,5 @@
 $widthSite: 1140px;
+$widthBurgerMenu: 232px;
 $gap: 30px;
 
 $pinkColor: #F16D7F;
@@ -7,6 +8,7 @@ $whiteColor: #FFF;
 $grayColor: #5D5D5D;
 $blackColor: #000;
 $backColorFi: #F8F8F8;
+
 
 %flex-space-between {
   display: flex;
@@ -24,6 +26,7 @@ $backColorFi: #F8F8F8;
 @mixin animation($animElem) {
   transition: $animElem 0.3s ease;
 }
+
 @mixin font($color, $font-size, $font-weight) {
   color: $color;
   font-size: $font-size;
@@ -39,8 +42,13 @@ $backColorFi: #F8F8F8;
   font-family: 'DM Sans', serif;
 }
 
-ou, ol {
-  list-style: none;
+li {
+  list-style-type: none; /* Убираем маркеры */
+}
+
+ul {
+  margin-left: 0; /* Отступ слева в браузере IE и Opera */
+  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
 }
 
 a {
@@ -85,6 +93,7 @@ button {
     align-items: end;
     gap: 33px;
   }
+
   &__svg {
     fill: #E8E8E8;
     @include animation(fill);
@@ -98,18 +107,22 @@ button {
 .header-nav {
   background-color: #F8F3F4;
   height: 148px;
+
   &__container {
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   &__title {
     @include font($pinkColor, 24px, 400);
   }
+
   &__nav {
     @include font($grayColor, 14px, 300);
   }
+
   &__link {
     @include animation(color);
     @include font($grayColor, 14px, 300);
@@ -120,9 +133,198 @@ button {
   color: $pinkColor;
   font-weight: 700;
 }
+
 .header-nav__link:hover {
-  color:$pinkColor;
+  color: $pinkColor;
 }
+
+/*burger menu*/
+
+.box-content {
+  overflow: hidden;
+}
+
+.header {
+  position: relative;
+}
+
+#burger {
+  position: absolute;
+  left: 999999px;
+  visibility: hidden;
+
+  &:checked ~ .burger-nav {
+    right: -$widthBurgerMenu;
+  }
+}
+
+.burger-nav {
+  background: #FFFFFF;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  width: 232px;
+  padding: 32px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  transition: right 0.3s;
+  z-index: 5;
+
+  &__head {
+    margin-bottom: 24px;
+    @include font($blackColor, 14px, 800);
+  }
+
+  &__main-link {
+    @include font($pinkColor, 14px, 600);
+    @include animation(color);
+  }
+
+  &__list {
+    margin-top: 12px;
+  }
+
+  &__link {
+    @include font(#6F6E6E, 14px, 400);
+    @include animation(color);
+  }
+}
+
+.burger-nav__main-link:hover {
+  color: #FF6A6A;
+}
+
+.burger-nav__link:hover {
+  color: #E05C6E;
+}
+
+.burger-nav__list:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.burger-nav__item {
+  padding-left: 10%;
+}
+
+.burger-nav__item:not(:first-child) {
+  margin-top: 11px;
+}
+
+/*filter sort*/
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.filter-sort {
+  height: 132px;
+  position: relative;
+  z-index: 4; /* убрать */
+  &__container {
+    padding-top: 39px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    gap: 30px;
+
+  }
+}
+.filter {
+  width: 360px;
+  box-sizing: border-box;
+  padding: 13px 16px 16px;
+  &[open] {
+    background: #FFFFFF;
+    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  }
+  &[open] .filter__heading{
+    color: $pinkColor;
+  }
+  &[open] .filter__svg {
+    fill: $pinkColor;
+  }
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    cursor: pointer;
+  }
+  &__heading {
+    @include font($blackColor, 14px, 600);
+  }
+  &__svg {
+    fill: black;
+  }
+}
+.filter-content {
+  &__item {
+    margin-top: 16px;
+  }
+  &__heading {
+    padding: 8px 11px 11px 11px;
+    border-left: 5px solid #EF5B70;
+    border-bottom: 1px solid #EBEBEB;
+    @include font(#6F6E6E, 14px, 400);
+  }
+  &__link-box {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  &__link {
+    @include font(#6F6E6E, 14px, 400);
+  }
+
+  &__link:hover {
+    color: $pinkColor;
+  }
+
+  &__item[open] .filter-content__heading {
+    color: $pinkColor;
+  }
+}
+
+/*sort*/
+.sort {
+  display: flex;
+  gap: 18px;
+  padding-top: 13px;
+  &__details {
+    position: relative;
+  }
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__head {
+    @include font(#6F6E6E, 14px, 400);
+  }
+  &__box {
+    position: absolute;
+    top: 22px;
+    left: -11px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: $whiteColor;
+    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    padding: 7px 30px 11px 9px;
+  }
+  &__check {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    @include font(#6F6E6E, 14px, 400);
+  }
+}
+
+
+/*fi*/
 .fi {
   display: flex;
   flex-direction: column;
@@ -288,6 +490,7 @@ button {
     @include font($whiteColor, 14px, 400);
     @include animation(background-color);
   }
+
   .subscribe-form__button:hover {
     background-color: #de4b62;
   }
@@ -296,6 +499,7 @@ button {
 /*footer*/
 .footer {
   height: 79px;
+
   &__container {
     height: 100%;
     display: flex;
@@ -303,13 +507,16 @@ button {
     align-items: center;
   }
 }
+
 .footer-left {
   @include font($whiteColor, 16px, 400);
 }
+
 .footer-right {
   height: 32px;
   display: flex;
   gap: 7px;
+
   &__link {
     width: 32px;
     display: flex;
@@ -319,6 +526,7 @@ button {
     background: $whiteColor;
     @include animation(background-color);
   }
+
   &__svg {
     fill: black;
     @include animation(fill);
@@ -327,6 +535,7 @@ button {
   .footer-right__link:hover {
     background-color: $pinkColor;
   }
+
   .footer-right__link:hover > .footer-right__svg {
     fill: $whiteColor;
   }
