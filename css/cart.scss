@@ -44,6 +44,9 @@
   &__name-property {
     @include font(#575757, 22px, $latomedium);
   }
+  &__name-property:not(:first-child) {
+    margin-top: 6px;
+  }
   &__property-price {
     color: $pinkColor;
   }

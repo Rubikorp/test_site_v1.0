@@ -657,6 +657,9 @@ summary::-webkit-details-marker {
   font-style: normal;
   line-height: normal;
 }
+.cart-dsc__name-property:not(:first-child) {
+  margin-top: 6px;
+}
 .cart-dsc__property-price {
   color: #F16D7F;
 }
