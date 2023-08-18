@@ -1,6 +1,6 @@
 @import "basic-element";
 .header-nav__link:first-child {
-  @include font($grayColor, 14px, 300);
+  @include font($grayColor, 14px, $lato);
 }
 
 .header-nav__link:first-child:hover {
@@ -9,7 +9,7 @@
 
 .header-nav__link:last-child {
   color: $pinkColor;
-  font-weight: 700;
+  font-family: $latobold;
 }
 .fi {
   margin-top: 0;

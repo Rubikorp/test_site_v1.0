@@ -2,7 +2,7 @@
 
 
 .header-nav__link:first-child {
-  @include font($grayColor, 14px, 300);
+  @include font($grayColor, 14px, $lato);
 }
 
 .header-nav__link:first-child:hover {
@@ -90,7 +90,7 @@
 .catalog-card__dsc {
   &__main-title {
     margin-top: 64px;
-    @include font($pinkColor, 14px, 300);
+    @include font($pinkColor, 14px, $lato);
   }
 
   &__svg {
@@ -99,7 +99,7 @@
 
   &__title-model {
     margin-top: 12px;
-    @include font(#4D4D4D, 18px, 300);
+    @include font(#4D4D4D, 18px, $lato);
   }
 
   &__dsc {
@@ -107,18 +107,18 @@
     margin-top: 48px;
     margin-right: auto;
     margin-left: auto;
-    @include font(#5E5E5E, 14px, 300);
+    @include font(#5E5E5E, 14px, $lato);
   }
 
   &__price {
     margin-top: 32px;
-    @include font($pinkColor, 24px, 300)
+    @include font($pinkColor, 24px, $lato)
   }
 }
 
 .catalog-card__form {
   &__label {
-    @include font(#6F6E6E, 14px, 400);
+    @include font(#6F6E6E, 14px, $latomedium);
   }
 
   &__select {
@@ -140,7 +140,7 @@
   margin-bottom: 61px;
   padding: 15px 57px 15px 73px;
   border: $pinkColor 1px solid;
-  @include font($pinkColor, 16px, 400);
+  @include font($pinkColor, 16px, $latomedium);
   @include animation(color);
   @include animation(background-color);
 

@@ -1,3 +1,5 @@
+@import "fonts-include";
+
 $widthSite: 1140px;
 $widthBurgerMenu: 232px;
 $gap: 30px;
@@ -9,6 +11,10 @@ $grayColor: #5D5D5D;
 $blackColor: #000;
 $backColorFi: #F8F8F8;
 
+/*font var*/
+$latobold: "latobold";
+$latomedium: "latomedium";
+$lato: "lato";
 
 %flex-space-between {
   display: flex;
@@ -27,11 +33,11 @@ $backColorFi: #F8F8F8;
   transition: $animElem 0.3s ease;
 }
 
-@mixin font($color, $font-size, $font-weight) {
+@mixin font($color, $font-size, $family) {
+  font-family: $family;
   color: $color;
   font-size: $font-size;
   font-style: normal;
-  font-weight: $font-weight;
   line-height: normal;
 }
 
@@ -39,7 +45,7 @@ $backColorFi: #F8F8F8;
 * {
   margin: 0;
   padding: 0;
-  font-family: 'DM Sans', serif;
+  font-family: 'lato';
 }
 
 li {
@@ -100,6 +106,24 @@ button {
   }
 }
 
+.cart-icon {
+  position: relative;
+}
+.cart-icon:after {
+  content: "2";
+  top: -8px;
+  left: 22px;
+  position: absolute;
+  height: 19px;
+  width: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include font($whiteColor, 12px, $latomedium);
+  background-color: $pinkColor;
+  border-radius: 50%;
+}
+
 .header__svg:hover {
   fill: #E05C6E;
 }
@@ -116,22 +140,22 @@ button {
   }
 
   &__title {
-    @include font($pinkColor, 24px, 400);
+    @include font($pinkColor, 24px, $latomedium);
   }
 
   &__nav {
-    @include font($grayColor, 14px, 300);
+    @include font($grayColor, 14px, $lato);
   }
 
   &__link {
     @include animation(color);
-    @include font($grayColor, 14px, 300);
+    @include font($grayColor, 14px, $lato);
   }
 }
 
 .header-nav__link:first-child {
   color: $pinkColor;
-  font-weight: 700;
+  font-weight: $latobold;
 }
 
 .header-nav__link:hover {
@@ -172,11 +196,11 @@ button {
 
   &__head {
     margin-bottom: 24px;
-    @include font($blackColor, 14px, 800);
+    @include font($blackColor, 14px, $latobold);
   }
 
   &__main-link {
-    @include font($pinkColor, 14px, 600);
+    @include font($pinkColor, 14px, $latomedium);
     @include animation(color);
   }
 
@@ -185,7 +209,7 @@ button {
   }
 
   &__link {
-    @include font(#6F6E6E, 14px, 400);
+    @include font(#6F6E6E, 14px, $latomedium);
     @include animation(color);
   }
 }
@@ -253,7 +277,7 @@ summary::-webkit-details-marker {
     cursor: pointer;
   }
   &__heading {
-    @include font($blackColor, 14px, 600);
+    @include font($blackColor, 14px, $latobold);
   }
   &__svg {
     fill: black;
@@ -267,7 +291,7 @@ summary::-webkit-details-marker {
     padding: 8px 11px 11px 11px;
     border-left: 5px solid #EF5B70;
     border-bottom: 1px solid #EBEBEB;
-    @include font(#6F6E6E, 14px, 400);
+    @include font(#6F6E6E, 14px, $latomedium);
   }
   &__link-box {
     padding: 24px 16px;
@@ -276,7 +300,7 @@ summary::-webkit-details-marker {
     gap: 11px;
   }
   &__link {
-    @include font(#6F6E6E, 14px, 400);
+    @include font(#6F6E6E, 14px, $latomedium);
   }
 
   &__link:hover {
@@ -302,7 +326,7 @@ summary::-webkit-details-marker {
     gap: 10px;
   }
   &__head {
-    @include font(#6F6E6E, 14px, 400);
+    @include font(#6F6E6E, 14px, $latomedium);
   }
   &__box {
     position: absolute;
@@ -319,7 +343,7 @@ summary::-webkit-details-marker {
     display: flex;
     gap: 9px;
     align-items: center;
-    @include font(#6F6E6E, 14px, 400);
+    @include font(#6F6E6E, 14px, $latomedium);
   }
 }
 
@@ -331,11 +355,11 @@ summary::-webkit-details-marker {
   align-items: center;
 
   &__title {
-    @include font($blackColor, 30px, 400);
+    @include font($blackColor, 30px, $latomedium);
   }
 
   &__dsc {
-    @include font($grayColor, 14px, 400);
+    @include font($grayColor, 14px, $latomedium);
     margin-top: 6px;
   }
 
@@ -350,7 +374,7 @@ summary::-webkit-details-marker {
     margin-top: 48px;
     padding: 15px 39px;
     border: $pinkColor 1px solid;
-    @include font($pinkColor, 16px, 400);
+    @include font($pinkColor, 16px, $latomedium);
     @include animation(color);
     @include animation(background-color);
   }
@@ -376,17 +400,17 @@ summary::-webkit-details-marker {
   }
 
   &__link {
-    @include font($blackColor, 13px, 600);
+    @include font($blackColor, 13px, $latobold);
   }
 
   &__dsc {
     margin-top: 12px;
-    @include font(#5D5D5D, 14px, 300);
+    @include font(#5D5D5D, 14px, $lato);
   }
 
   &__price {
     margin-top: 16px;
-    @include font($pinkColor, 16px, 400);
+    @include font($pinkColor, 16px, $latomedium);
   }
 }
 
@@ -413,12 +437,12 @@ summary::-webkit-details-marker {
   }
 
   &__title {
-    @include font($whiteColor, 20px, 400)
+    @include font($whiteColor, 20px, $latomedium)
   }
 
   &__dsc {
     text-align: center;
-    @include font($whiteColor, 14px, 300)
+    @include font($whiteColor, 14px, $lato)
   }
 }
 
@@ -447,7 +471,7 @@ summary::-webkit-details-marker {
 
   &__quote {
     margin-top: $gap;
-    @include font($blackColor, 20px, 400);
+    @include font($blackColor, 20px, $latomedium);
   }
 
   &__quote-italic {
@@ -460,12 +484,12 @@ summary::-webkit-details-marker {
 
   &__title {
     text-align: center;
-    @include font($blackColor, 24px, 700)
+    @include font($blackColor, 24px, $latobold)
   }
 
   &__small-title {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: $latomedium
   }
 }
 
@@ -480,14 +504,14 @@ summary::-webkit-details-marker {
     border: none;
     border-radius: 25px 0 0 25px;
     background: #E1E1E1;
-    @include font(#222224, 14px, 400);
+    @include font(#222224, 14px, $latomedium);
   }
 
   &__button {
     padding: 15px 18px 15px 17px;
     border-radius: 0 25px 25px 0;
     background: #F16D7F;
-    @include font($whiteColor, 14px, 400);
+    @include font($whiteColor, 14px, $latomedium);
     @include animation(background-color);
   }
 
@@ -509,7 +533,7 @@ summary::-webkit-details-marker {
 }
 
 .footer-left {
-  @include font($whiteColor, 16px, 400);
+  @include font($whiteColor, 16px, $latomedium);
 }
 
 .footer-right {
