@@ -1,19 +1,19 @@
 @charset "UTF-8";
 @font-face {
   font-family: "lato";
-  src: local("lato"), url("/fonts/Lato-Regular.woff") format("woff");
+  src: local("lato"), url("../fonts/Lato-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "latomedium";
-  src: local("lato"), url("/fonts/Lato-Medium.woff") format("woff");
+  src: local("lato"), url("../fonts/Lato-Medium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "latobold";
-  src: local("lato"), url("/fonts/Lato-Bold.woff") format("woff");
+  src: local("lato"), url("../fonts/Lato-Bold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
