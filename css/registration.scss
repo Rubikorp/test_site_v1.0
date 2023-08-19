@@ -1,0 +1,103 @@
+@import "basic-element";
+
+/* var font size desktop*/
+$btnFontSize: 14px;
+$validFontSize: 13px;
+$inputFontSize: 13px;
+$nameFormFontSize: 16px;
+$labelRadioFontSize: 11px;
+$perkFontSize: 24px;
+
+/* var color */
+$dscColor: #000;
+$nameFormColor: #222;
+$btnBgColor: rgba(241, 109, 127, 1);
+$selectBtnBgColor: #EF5B70;
+$btnFontColor: #FFF;
+$inputPlaceholderColor: #B1B1B1;
+$validDscColor: #B1B1B1;
+
+/*registration*/
+.reg-box {
+  height: 53vh;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 9vh;
+  margin-bottom: 14vh;
+  &__left {
+    width: 32%;
+  }
+  &__right {
+    width: 57%;
+  }
+}
+
+.reg {
+  display: flex;
+  flex-direction: column;
+  &__box-input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__title {
+    @include font($nameFormColor, $nameFormFontSize, $lato);
+  }
+  &__input {
+    padding: 13px 16px;
+    @include font($dscColor,$inputFontSize, $lato);
+  }
+  &__input::placeholder {
+    @include font($inputPlaceholderColor, $inputFontSize, $lato);
+  }
+  &__box-radio {
+    margin-top: 31px;
+    margin-bottom: 33px;
+    display: flex;
+    align-items: center;
+  }
+  &__radio {
+    margin-right: 10px;
+  }
+  &__label-radio{
+    @include font($dscColor, $labelRadioFontSize, $lato);
+  }
+  &__label-radio:not(:last-child) {
+    margin-right: 20px;
+  }
+  &__valid-dsc {
+    margin-top: 15px;
+    @include font($validDscColor, $validFontSize, $lato);
+  }
+  &__box-btn {
+    margin-top: 39px;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 29px;
+    background: $btnBgColor;
+    @include font($btnFontColor,$btnFontSize, $lato);
+    @include animation(background);
+  }
+  &__btn:hover {
+    background: $selectBtnBgColor;
+  }
+}
+
+.perks {
+  @include font($dscColor, $perkFontSize, $lato);
+  &__dsc {
+    margin-top: 22px;
+    margin-bottom: 21px;
+  }
+  &__li:not(:first-child) {
+    margin-top: 15px;
+  }
+  &__li:before {
+    content: "\2713";
+    padding-right: 22px;
+  }
+}
