@@ -890,7 +890,7 @@ button {
     gap: 32px;
   }
   .filter {
-    min-width: 98px;
+    min-width: auto;
   }
   .filter__heading {
     display: none;
@@ -901,9 +901,10 @@ button {
   }
   .sort {
     justify-content: space-between;
-    min-width: 260px;
+    min-width: auto;
   }
   .sort__head {
+    white-space: nowrap;
     font-size: 12px;
   }
 }
@@ -1533,7 +1534,7 @@ summary::-webkit-details-marker {
     gap: 32px;
   }
   .filter {
-    min-width: 98px;
+    min-width: auto;
   }
   .filter__heading {
     display: none;
@@ -1544,9 +1545,10 @@ summary::-webkit-details-marker {
   }
   .sort {
     justify-content: space-between;
-    min-width: 260px;
+    min-width: auto;
   }
   .sort__head {
+    white-space: nowrap;
     font-size: 12px;
   }
 }

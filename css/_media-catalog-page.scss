@@ -30,7 +30,7 @@
     }
   }
   .filter {
-    min-width: 98px;
+    min-width: auto;
     &__heading {
       display: none;
     }
@@ -41,8 +41,9 @@
   }
   .sort {
     justify-content: space-between;
-    min-width: 260px;
+    min-width: auto;
     &__head {
+      white-space: nowrap;
       font-size: 12px;
     }
   }
