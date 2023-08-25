@@ -11,6 +11,133 @@
   color: $pinkColor;
   font-family: $latobold;
 }
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/*filter sort*/
+.filter-sort {
+  height: 132px;
+  position: relative;
+  z-index: 4; /* убрать */
+  &__container {
+    padding-top: 39px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    gap: 30px;
+
+  }
+}
+
+.filter {
+  width: 360px;
+  box-sizing: border-box;
+  padding: 13px 16px 16px;
+
+  &[open] {
+    background: #FFFFFF;
+    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  }
+
+  &[open] .filter__heading {
+    color: $pinkColor;
+  }
+
+  &[open] .filter__svg {
+    fill: $pinkColor;
+  }
+
+  &__summary {
+    display: flex;
+    gap: 11px;
+    cursor: pointer;
+  }
+
+  &__heading {
+    @include font($blackColor, $dscFontSize, $latobold);
+  }
+
+  &__svg {
+    fill: black;
+  }
+}
+
+.filter-content {
+  &__item {
+    margin-top: 16px;
+  }
+
+  &__heading {
+    padding: 8px 11px 11px 11px;
+    border-left: 5px solid #EF5B70;
+    border-bottom: 1px solid #EBEBEB;
+    @include font(#6F6E6E, $dscFontSize, $latomedium);
+  }
+
+  &__link-box {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  &__link {
+    @include font(#6F6E6E, $dscFontSize, $latomedium);
+  }
+
+  &__link:hover {
+    color: $pinkColor;
+  }
+
+  &__item[open] .filter-content__heading {
+    color: $pinkColor;
+  }
+}
+
+/*sort*/
+.sort {
+  display: flex;
+  gap: 18px;
+  padding-top: 13px;
+
+  &__details {
+    position: relative;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__head {
+    @include font(#6F6E6E, $dscFontSize, $latomedium);
+  }
+
+  &__box {
+    position: absolute;
+    top: 22px;
+    left: -11px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: $whiteColor;
+    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    padding: 7px 30px 11px 9px;
+  }
+
+  &__check {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    @include font(#6F6E6E, $dscFontSize, $latomedium);
+  }
+}
 .fi {
   margin-top: 0;
   margin-bottom: 188px;
@@ -18,3 +145,5 @@
 .fi-item {
   margin-top: 0;
 }
+
+@import "media";

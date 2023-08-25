@@ -1,15 +1,21 @@
 @import "basic-element";
+/*font size*/
+$bigTtlFontS: 3rem; //48
+$smallTtlFontS: 2rem; //32
+$dscFontS: 1rem; //16
 
 /*top*/
 .top-block {
   background: #F1E4E6;
-  height: 754px;
+  min-height: 92vh;
   position: relative;
 }
 
 .top {
+  min-height: 92vh;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 
   &__img {
     position: absolute;
@@ -20,9 +26,7 @@
 }
 
 .top-title {
-  display: flex;
-  align-items: center;
-  margin-top: 290px;
+  border-left: #F16D7F 12px solid;
   margin-right: 9%;
 
   &__contain-ttl {
@@ -30,15 +34,15 @@
   }
 
   &__big {
-    @include font($blackColor, 48px, $latobold)
+    @include font($blackColor, $bigTtlFontS, $latobold)
   }
 
   &__small {
-    @include font($blackColor, 32px, $latomedium)
+    @include font($blackColor, $smallTtlFontS, $latomedium)
   }
 
   &__pink {
-    @include font($pinkColor, 32px, $latomedium)
+    @include font($pinkColor, $smallTtlFontS, $latomedium)
   }
 }
 
@@ -59,11 +63,11 @@
   }
 
   &__dsc {
-    @include font($whiteColor, 16px, $latomedium)
+    @include font($whiteColor, $dscFontS, $latomedium)
   }
 
   &__title {
-    @include font($pinkColor, 24px, $latobold)
+    @include font($pinkColor, $titleFontSize, $latobold)
   }
 }
 
@@ -83,13 +87,15 @@
   opacity: 100;
   @include animation(opacity);
 }
+
 .categories__item:hover:after {
   opacity: 0;
 }
 
 .categories__item:not(:last-child) {
   height: 260px;
-  width: calc((100% - 2 * #{$gap}) / 3);
+  flex-grow: 1;
+  flex-basis: 150px;
 }
 
 .categories__item:last-child {
@@ -104,8 +110,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: contain;
   background: url("../img/for_women.jpg") no-repeat;
+  background-size: cover;
   z-index: -2;
 }
 
@@ -116,8 +122,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: contain;
   background: url("../img/for_men.jpg") no-repeat;
+  background-size: cover;
   z-index: -2;
 }
 
@@ -128,8 +134,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: contain;
   background: url("../img/for_kids.png") no-repeat;
+  background-size: cover;
   z-index: -2;
 }
 
@@ -140,8 +146,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: contain;
   background: url("../img/ACCESORIES.jpg") no-repeat;
+  background-size: cover;
   z-index: -2;
 }
 
@@ -152,11 +158,11 @@
   align-items: center;
 
   &__title {
-    @include font($blackColor, 30px, $latomedium);
+    @include font($blackColor, $bigTitleFontSize, $latomedium);
   }
 
   &__dsc {
-    @include font($grayColor, 14px, $latomedium);
+    @include font($grayColor, $dscFontSize, $latomedium);
     margin-top: 6px;
   }
 
@@ -171,7 +177,7 @@
     margin-top: 48px;
     padding: 15px 39px;
     border: $pinkColor 1px solid;
-    @include font($pinkColor, 16px, $latomedium);
+    @include font($pinkColor, $dscFontS, $latomedium);
     @include animation(color);
     @include animation(background-color);
   }
@@ -197,16 +203,18 @@
   }
 
   &__link {
-    @include font($blackColor, 13px, $latobold);
+    @include font($blackColor, $linkFontSize, $latobold);
   }
 
   &__dsc {
     margin-top: 12px;
-    @include font(#5D5D5D, 14px, $lato);
+    @include font(#5D5D5D, $dscFontSize, $lato);
   }
 
   &__price {
     margin-top: 16px;
-    @include font($pinkColor, 16px, $latomedium);
+    @include font($pinkColor, $dscFontS, $latomedium);
   }
 }
+
+@import "media";

@@ -1,0 +1,37 @@
+@media (max-width: 900px) {
+  .reg-box {
+    height: auto;
+    min-height: 53vh;
+    margin-bottom: 96px;
+    padding-left: 16px;
+    padding-right: 16px;
+    flex-wrap: nowrap;
+    gap: 22px;
+    &__left {
+      width: 50%;
+      flex-grow: 1;
+    }
+    &__right {
+      width: 50%;
+      flex-grow: 1;
+    }
+  }
+
+  .perks {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 593px) {
+  .reg-box {
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 100px;
+    &__left {
+      width: auto;
+    }
+    &__right {
+      width: auto;
+    }
+  }
+}

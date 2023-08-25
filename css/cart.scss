@@ -84,6 +84,10 @@
   display: flex;
   flex-direction: column;
   width: 32%;
+  &__box-form {
+    display: flex;
+    flex-direction: column;
+  }
   &__label {
     @include font($blackColor, 16px, $lato);
   }
@@ -157,3 +161,5 @@
     background: #EF5B70;
   }
 }
+
+@import "media";

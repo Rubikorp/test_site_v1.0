@@ -1,5 +1,11 @@
 @import "basic-element";
+summary {
+  display: block;
+}
 
+summary::-webkit-details-marker {
+  display: none;
+}
 
 .header-nav__link:first-child {
   @include font($grayColor, 14px, $lato);
@@ -77,6 +83,8 @@
     top: -50px;
     left: calc(50% - #{$widthSite} / 2);
     right: calc(50% - #{$widthSite} / 2);
+    padding-right: 250px;
+    padding-left: 250px;
     text-align: center;
     background-color: white;
     border: #EAEAEA 1px solid;
@@ -103,7 +111,6 @@
   }
 
   &__dsc {
-    max-width: 50%;
     margin-top: 48px;
     margin-right: auto;
     margin-left: auto;
@@ -116,22 +123,21 @@
   }
 }
 
-.catalog-card__form {
-  &__label {
-    @include font(#6F6E6E, 14px, $latomedium);
+.cat-card-form {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  box-sizing: border-box;
+  margin-top: 65px;
+  padding-top: 65px;
+  border-top: #EAEAEA 1px solid;
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    @include font(#6F6E6E, 14px, $latomedium)
   }
-
-  &__select {
-    width: 1.2%;
-    border: none;
-    appearance: none;
-    overflow: hidden;
-    background: url('../img/catalog/Vector.svg') no-repeat right;
-  }
-}
-
-.catalog-card__form__label:not(:first-child) {
-  padding-left: $gap;
 }
 
 .catalog-card__form__button {
@@ -171,3 +177,6 @@
 .fi-item {
   margin-top: 0;
 }
+
+@import "media";
+@import "media-product-page";

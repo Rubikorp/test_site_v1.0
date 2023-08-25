@@ -1,0 +1,49 @@
+@media (max-width: 800px) {
+  .header-nav {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .filter-sort {
+    max-height: 81px;
+    &__container {
+      width: 100%;
+      padding-top: 24px;
+      justify-content: space-between;
+    }
+  }
+  .filter {
+    min-width: 180px;
+  }
+  .sort {
+    padding-right: 16px;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-nav {
+    &__container {
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+    }
+  }
+  .filter {
+    min-width: 98px;
+    &__heading {
+      display: none;
+    }
+    &__svg {
+      width: 37px;
+      height: 25px;
+    }
+  }
+  .sort {
+    justify-content: space-between;
+    min-width: 260px;
+    &__head {
+      font-size: 12px;
+    }
+  }
+}

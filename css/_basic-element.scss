@@ -4,6 +4,19 @@ $widthSite: 1140px;
 $widthBurgerMenu: 232px;
 $gap: 30px;
 
+/*font size*/
+html {
+  font-size: 16px;
+}
+
+$titleFontSize: 1.5rem; //24
+$smallTitleFontSize: 1.25rem; //20
+$dscFontSize: 0.875rem; //14
+$priceFontSize: 1rem; //16
+$bigTitleFontSize: 1.875rem; //30
+$linkFontSize: 0.8125rem; // 13
+
+
 $pinkColor: #F16D7F;
 $backColor: #222;
 $whiteColor: #FFF;
@@ -27,7 +40,6 @@ $lato: "lato";
   justify-content: center;
   align-items: center;
 }
-
 
 @mixin animation($animElem) {
   transition: $animElem 0.3s ease;
@@ -86,7 +98,7 @@ button {
 
 .header {
   @extend %flex-space-between;
-  height: 75px;
+  min-height: 8vh;
 
   &__left {
     display: flex;
@@ -106,24 +118,6 @@ button {
   }
 }
 
-.cart-icon {
-  position: relative;
-}
-.cart-icon:after {
-  content: "2";
-  top: -8px;
-  left: 22px;
-  position: absolute;
-  height: 19px;
-  width: 19px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @include font($whiteColor, 12px, $latomedium);
-  background-color: $pinkColor;
-  border-radius: 50%;
-}
-
 .header__svg:hover {
   fill: #E05C6E;
 }
@@ -140,16 +134,16 @@ button {
   }
 
   &__title {
-    @include font($pinkColor, 24px, $latomedium);
+    @include font($pinkColor, $titleFontSize, $latomedium);
   }
 
   &__nav {
-    @include font($grayColor, 14px, $lato);
+    @include font($grayColor, $dscFontSize, $lato);
   }
 
   &__link {
     @include animation(color);
-    @include font($grayColor, 14px, $lato);
+    @include font($grayColor, $dscFontSize, $lato);
   }
 }
 
@@ -189,18 +183,18 @@ button {
   padding: 32px;
   box-sizing: border-box;
   position: absolute;
-  top: 75px;
+  top: 8vh;
   right: 0;
   transition: right 0.3s;
   z-index: 5;
 
   &__head {
-    margin-bottom: 24px;
-    @include font($blackColor, 14px, $latobold);
+    margin-bottom: $titleFontSize;
+    @include font($blackColor, $dscFontSize, $latobold);
   }
 
   &__main-link {
-    @include font($pinkColor, 14px, $latomedium);
+    @include font($pinkColor, $dscFontSize, $latomedium);
     @include animation(color);
   }
 
@@ -209,7 +203,7 @@ button {
   }
 
   &__link {
-    @include font(#6F6E6E, 14px, $latomedium);
+    @include font(#6F6E6E, $dscFontSize, $latomedium);
     @include animation(color);
   }
 }
@@ -234,118 +228,27 @@ button {
   margin-top: 11px;
 }
 
-/*filter sort*/
-summary {
-  display: block;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-.filter-sort {
-  height: 132px;
+.cart-icon {
   position: relative;
-  z-index: 4; /* убрать */
-  &__container {
-    padding-top: 39px;
-    position: absolute;
-    top: 0;
-    display: flex;
-    gap: 30px;
-
-  }
-}
-.filter {
-  width: 360px;
-  box-sizing: border-box;
-  padding: 13px 16px 16px;
-  &[open] {
-    background: #FFFFFF;
-    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
-  }
-  &[open] .filter__heading{
-    color: $pinkColor;
-  }
-  &[open] .filter__svg {
-    fill: $pinkColor;
-  }
-  &__summary {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    cursor: pointer;
-  }
-  &__heading {
-    @include font($blackColor, 14px, $latobold);
-  }
-  &__svg {
-    fill: black;
-  }
-}
-.filter-content {
-  &__item {
-    margin-top: 16px;
-  }
-  &__heading {
-    padding: 8px 11px 11px 11px;
-    border-left: 5px solid #EF5B70;
-    border-bottom: 1px solid #EBEBEB;
-    @include font(#6F6E6E, 14px, $latomedium);
-  }
-  &__link-box {
-    padding: 24px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-  }
-  &__link {
-    @include font(#6F6E6E, 14px, $latomedium);
-  }
-
-  &__link:hover {
-    color: $pinkColor;
-  }
-
-  &__item[open] .filter-content__heading {
-    color: $pinkColor;
-  }
 }
 
-/*sort*/
-.sort {
+.cart-icon:after {
+  content: "2";
+  top: -8px;
+  left: 22px;
+  position: absolute;
+  height: 19px;
+  width: 19px;
   display: flex;
-  gap: 18px;
-  padding-top: 13px;
-  &__details {
-    position: relative;
-  }
-  &__heading {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  &__head {
-    @include font(#6F6E6E, 14px, $latomedium);
-  }
-  &__box {
-    position: absolute;
-    top: 22px;
-    left: -11px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    background: $whiteColor;
-    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
-    padding: 7px 30px 11px 9px;
-  }
-  &__check {
-    display: flex;
-    gap: 9px;
-    align-items: center;
-    @include font(#6F6E6E, 14px, $latomedium);
-  }
+  justify-content: center;
+  align-items: center;
+  @include font($whiteColor, 12px, $latomedium);
+  background-color: $pinkColor;
+  border-radius: 50%;
 }
+
+/*filter sort*/
+
 
 
 /*fi*/
@@ -355,11 +258,11 @@ summary::-webkit-details-marker {
   align-items: center;
 
   &__title {
-    @include font($blackColor, 30px, $latomedium);
+    @include font($blackColor, $bigTitleFontSize, $latomedium);
   }
 
   &__dsc {
-    @include font($grayColor, 14px, $latomedium);
+    @include font($grayColor, $dscFontSize, $latomedium);
     margin-top: 6px;
   }
 
@@ -374,7 +277,7 @@ summary::-webkit-details-marker {
     margin-top: 48px;
     padding: 15px 39px;
     border: $pinkColor 1px solid;
-    @include font($pinkColor, 16px, $latomedium);
+    @include font($pinkColor, $priceFontSize, $latomedium);
     @include animation(color);
     @include animation(background-color);
   }
@@ -405,45 +308,70 @@ summary::-webkit-details-marker {
 
   &__dsc {
     margin-top: 12px;
-    @include font(#5D5D5D, 14px, $lato);
+    @include font(#5D5D5D, $dscFontSize, $lato);
   }
 
   &__price {
     margin-top: 16px;
-    @include font($pinkColor, 16px, $latomedium);
+    @include font($pinkColor, $priceFontSize, $latomedium);
   }
 }
 
 /*benefits*/
 .benefits {
   margin-top: 95px;
-  height: 341px;
+  min-height: 341px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__container {
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: $gap;
+    gap: 30px;
   }
 
   &__article {
-    height: calc(100% - 30.5% * 2);
-    width: calc((100% - 2 * #{$gap}) / 3);
+    max-width: 360px;
+    min-height: 131px;
     display: flex;
+    flex-basis: 360px;
+    flex-grow: 1;
+    flex-shrink: 1;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
   }
 
   &__title {
-    @include font($whiteColor, 20px, $latomedium)
+    @include font($whiteColor, $smallTitleFontSize, $latomedium)
   }
 
   &__dsc {
     text-align: center;
-    @include font($whiteColor, 14px, $lato)
+    @include font($whiteColor, $dscFontSize, $lato)
   }
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon:after {
+  content: "2";
+  top: -8px;
+  left: 22px;
+  position: absolute;
+  height: 19px;
+  width: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include font($whiteColor, 12px, $latomedium);
+  background-color: $pinkColor;
+  border-radius: 50%;
 }
 
 /*Subscribe*/
@@ -471,7 +399,7 @@ summary::-webkit-details-marker {
 
   &__quote {
     margin-top: $gap;
-    @include font($blackColor, 20px, $latomedium);
+    @include font($blackColor, $smallTitleFontSize, $latomedium);
   }
 
   &__quote-italic {
@@ -484,7 +412,7 @@ summary::-webkit-details-marker {
 
   &__title {
     text-align: center;
-    @include font($blackColor, 24px, $latobold)
+    @include font($blackColor, $titleFontSize, $latobold)
   }
 
   &__small-title {
@@ -504,14 +432,14 @@ summary::-webkit-details-marker {
     border: none;
     border-radius: 25px 0 0 25px;
     background: #E1E1E1;
-    @include font(#222224, 14px, $latomedium);
+    @include font(#222224, $dscFontSize, $latomedium);
   }
 
   &__button {
     padding: 15px 18px 15px 17px;
     border-radius: 0 25px 25px 0;
     background: #F16D7F;
-    @include font($whiteColor, 14px, $latomedium);
+    @include font($whiteColor, $dscFontSize, $latomedium);
     @include animation(background-color);
   }
 
@@ -533,7 +461,7 @@ summary::-webkit-details-marker {
 }
 
 .footer-left {
-  @include font($whiteColor, 16px, $latomedium);
+  @include font($whiteColor, $priceFontSize, $latomedium);
 }
 
 .footer-right {
@@ -564,3 +492,5 @@ summary::-webkit-details-marker {
     fill: $whiteColor;
   }
 }
+
+@import "media";
